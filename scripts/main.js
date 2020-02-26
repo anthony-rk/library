@@ -1,10 +1,13 @@
+// https://www.valentinog.com/blog/html-table/
+
 let myLibrary = [];
 
-// function Book() {
-//     // The constructor
-// }
+var render = function (template, node) {
+	node.innerHTML = template;
+};
 
 function Book(title, author, pages, read) {
+    // Constructor
     this.title = title,
     this.author = author,
     this.pages = pages,
@@ -18,8 +21,18 @@ function Book(title, author, pages, read) {
     }
 }
 
-const book1 = new Book('1Q84', 'Haruki Murakami', 1342, true);
-const book2 = new Book('Pride and Predujice', 'Jane Austen', 432, false);
+function addBookToLibray(newBook) {
+    myLibrary.push(newBook);
+}
 
-console.log(book1.info());
-console.log(book2.info());
+const book1Q84 = new Book('1Q84', 'Haruki Murakami', 1342, true);
+const bookPridePrejudice = new Book('Pride and Predujice', 'Jane Austen', 432, false);
+
+addBookToLibray(book1Q84);
+addBookToLibray(bookPridePrejudice);
+
+console.table(myLibrary);
+
+let booksDisplay = document.getElementById('books');
+myLibrary.forEach(book => render(book + ' ', booksDisplay));
+// render(myLibrary, booksDisplay);
