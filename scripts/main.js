@@ -12,13 +12,19 @@ function Book(title, author, pages, read) {
     this.author = author,
     this.pages = pages,
     this.read = read
-    this.info = function() {
-        if (read === true) {
-            return title + " by " + author + ", " + pages + " pages, has been read." ;     
-        } else {
-            return title + " by " + author + ", " + pages + " pages, not read yet."; 
-        }
-    }
+}
+
+// Book.prototype.info = function() {
+//     if (read === true) {
+//         return title + " by " + author + ", " + pages + " pages, has been read." ;     
+//     } else {
+//         return title + " by " + author + ", " + pages + " pages, not read yet."; 
+//     }
+// }
+
+Book.prototype.toggleRead = function(book) {
+    // Toggle "Read" to "Not Read"
+    return book.read === true ? book.read = false : book.read = true;
 }
 
 function addBookToLibray(newBook) {
@@ -26,13 +32,14 @@ function addBookToLibray(newBook) {
 }
 
 const book1Q84 = new Book('1Q84', 'Haruki Murakami', 1342, true);
-const bookPridePrejudice = new Book('Pride and Predujice', 'Jane Austen', 432, false);
+const bookCleanCode = new Book('Clean Code', 'Robert C. Martin', 407, true);
+const bookPridePrejudice = new Book('Pride and Prejudice', 'Jane Austen', 432, false);
 
 addBookToLibray(book1Q84);
+addBookToLibray(bookCleanCode);
 addBookToLibray(bookPridePrejudice);
 
 console.table(myLibrary);
 
-let booksDisplay = document.getElementById('books');
-myLibrary.forEach(book => render(book + ' ', booksDisplay));
-// render(myLibrary, booksDisplay);
+let tbody = document.getElementsByName("tbody");
+

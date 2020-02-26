@@ -1,3 +1,23 @@
-.books {
-    
+body {
+    background-color: lightgoldenrodyellow;
+}
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    color: blue;
+    font-family: cursive;
+}
+
+.book-table {
+    margin: 0 auto;
+    text-align: left;
+    color: black;
+    background-color: lightsteelblue;
+    border: dotted black;
+}
+
+.table-head {
+    padding-left: 20px;
+    padding-right: 20px;
+    border: dotted maroon;
 }
