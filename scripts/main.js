@@ -41,5 +41,37 @@ addBookToLibray(bookPridePrejudice);
 
 console.table(myLibrary);
 
-let tbody = document.getElementsByName("tbody");
+let tbody = document.getElementById("tbody");
 
+// Need to take myLibrary array and stick each data point under the correct field
+myLibrary.forEach(book => {
+    console.log(book.title);
+});
+  
+function generateTable(table, data) {
+    for (let element of data) {
+        let row = table.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
+}
+  
+let table = document.querySelector("table");
+let data = Object.keys(myLibrary[0]);
+//   generateTableHead(table, data);
+generateTable(table, myLibrary);
+
+// Array-like object
+for (let i = 0; i < myLibrary.length; i++) {
+    // console.log(Object.getOwnPropertyNames(myLibrary[i]));  
+    Object.getOwnPropertyNames(myLibrary[i]).forEach(
+        function (val, index, array) {
+            console.log(val + ' -> ' + myLibrary[i][val]);
+        }
+    )
+}
+
+console.log(tbody);
