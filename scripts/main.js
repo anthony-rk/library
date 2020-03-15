@@ -3,11 +3,12 @@
 let myLibrary = [];
 
 // Object Constructor
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, index) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.read = read
+    this.read = read,
+    this.index = index;
 }
 
 addBookToLibray = function(newBook, myArray) {
@@ -19,19 +20,19 @@ Book.prototype.toggleRead = function(book) {
     return book.read === true ? book.read = false : book.read = true;
 };
 
-const book1Q84 = new Book('1Q84', 'Haruki Murakami', 1342, true);
-const bookCleanCode = new Book('Clean Code', 'Robert C. Martin', 407, true);
-const bookPridePrejudice = new Book('Pride and Prejudice', 'Jane Austen', 432, false);
-
+// Initialize the Library with some Data
+const book1Q84 = new Book('1Q84', 'Haruki Murakami', 1342, true, (myLibrary.length));
 addBookToLibray(book1Q84, myLibrary);
+const bookCleanCode = new Book('Clean Code', 'Robert C. Martin', 407, true, (myLibrary.length));
 addBookToLibray(bookCleanCode, myLibrary);
+const bookPridePrejudice = new Book('Pride and Prejudice', 'Jane Austen', 432, false, (myLibrary.length));
 addBookToLibray(bookPridePrejudice, myLibrary);
 
 // To display the table in the console
 // Remove once done
 console.table(myLibrary);
 
-// make render work on 1 entry in the array, and then foreach() it to the rest
+// make render work on 1 entry in the array, and then loop over the full myLibrary array
 let renderBookInfo = function(inputBook) {
     let lineBreak = document.createElement('br');
 
@@ -42,14 +43,19 @@ let renderBookInfo = function(inputBook) {
     parent.append(lineBreak);
 
     // Make a div for the Remove button
-    let buttonRemoveBook = document.createElement('button')
+    let buttonRemoveBook = document.createElement('button');
+    let currentIndex = inputBook.index;
     buttonRemoveBook.classList.add('buttonRemoveBook');
+    buttonRemoveBook.classList.add(currentIndex); // newly added
     buttonRemoveBook.innerHTML = "Remove";
     buttonRemoveBook.addEventListener("click", function() {
         // Remove the book object from myLibrary array. 
+        myLibrary.splice(currentIndex, 1);
         // Re-run the renderBookInfo() on each in the array.
-        
-    })
+        removeCurrentRenderingOnPage();
+        renderOnPage(myLibrary);
+        // Need to have the indexes update dynamically when I reload the rendering
+    });
     parent.append(buttonRemoveBook);
 
     // Make 4 divs here, one for Title, Author, Pages, and Read. Use CSS Classes to format
@@ -73,17 +79,22 @@ let renderBookInfo = function(inputBook) {
     divAuthor.innerText = inputBook.author;
     divPages.innerText = inputBook.pages;
     divRead.innerText = inputBook.read;
-
 };
-// Runder renderBookInfor for the headers
+
+// Render renderBookInfor for the headers
 let renderBookHeader = function(inputBook) {
     let lineBreak = document.createElement('br');
 
     let baseNode = document.getElementById("books");
     let parent = document.createElement('div');
-    parent.classList.add('root');
+    parent.classList.add('root-header');
     baseNode.append(parent);
     parent.append(lineBreak);
+
+    // Make 1 div for the remove button column
+    let divRemoveButton = document.createElement('div')
+    divRemoveButton.classList.add('headerRemoveButton');
+    parent.append(divRemoveButton);
 
     // Make 4 divs here, one for Title, Author, Pages, and Read. Use CSS Classes to format
     let divTitle = document.createElement('div')
@@ -114,9 +125,24 @@ let renderOnPage = function(inputArray) {
     let length = inputArray.length;
 
     for (let i = 0; i < length; i++) {
+        inputArray[i].index = i;
         renderBookInfo(inputArray[i]);
     }
-}(myLibrary);
+    console.table(myLibrary); // For data validation
+};
+renderOnPage(myLibrary);
+
+let removeCurrentRenderingOnPage = function() {
+    // remove the current renderings on page
+    removeElementsByClass('root');
+};
+
+let removeElementsByClass = function(className){
+    var elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+};
 
 let getNewBookData = function() {
     let newBookObject = {};
@@ -126,8 +152,10 @@ let getNewBookData = function() {
     newBookObject.author = prompt("Please enter new book author:", "Leo Tolstoy");
     newBookObject.pages = prompt("Please enter new book pages:", "1225");
     newBookObject.read = prompt("Please enter if new book has been read: (True/False)", "True");
+    newBookObject.index = (myLibrary.length);
 
     addBookToLibray(newBookObject, myLibrary);
-    renderBookInfo(myLibrary[myLibrary.length - 1]);
+    removeCurrentRenderingOnPage();
+    renderOnPage(myLibrary);
 };
 
