@@ -28,12 +28,8 @@ addBookToLibray(bookCleanCode, myLibrary);
 addBookToLibray(bookPridePrejudice, myLibrary);
 
 // To display the table in the console
+// Remove once done
 console.table(myLibrary);
-
-// Need to take myLibrary array and stick each data point under the correct field
-// myLibrary.forEach(book => {
-//     console.log(book.title);
-// });
 
 // make render work on 1 entry in the array, and then foreach() it to the rest
 let renderBookInfo = function(inputBook) {
@@ -45,6 +41,16 @@ let renderBookInfo = function(inputBook) {
     baseNode.append(parent);
     parent.append(lineBreak);
 
+    // Make a div for the Remove button
+    let buttonRemoveBook = document.createElement('button')
+    buttonRemoveBook.classList.add('buttonRemoveBook');
+    buttonRemoveBook.innerHTML = "Remove";
+    buttonRemoveBook.addEventListener("click", function() {
+        // Remove the book object from myLibrary array. 
+        // Re-run the renderBookInfo() on each in the array.
+        
+    })
+    parent.append(buttonRemoveBook);
 
     // Make 4 divs here, one for Title, Author, Pages, and Read. Use CSS Classes to format
     let divTitle = document.createElement('div')
@@ -101,7 +107,7 @@ let renderBookHeader = function(inputBook) {
     divPages.innerText = 'Pages';
     divRead.innerText = 'Read';
 
-}();
+}(); // IFFE to display on page immediately
 
 // Run renderBooKInfo for the myLibrary array
 let renderOnPage = function(inputArray) {
@@ -112,10 +118,6 @@ let renderOnPage = function(inputArray) {
     }
 }(myLibrary);
 
-// let addNewUserAddedBook = function(newBookObject) {
-//     myLibrary.push(newBookObject);
-// };
-
 let getNewBookData = function() {
     let newBookObject = {};
     
@@ -125,9 +127,7 @@ let getNewBookData = function() {
     newBookObject.pages = prompt("Please enter new book pages:", "1225");
     newBookObject.read = prompt("Please enter if new book has been read: (True/False)", "True");
 
-    console.log(newBookObject);
-    // return newBookObject;
-    myLibrary.push(newBookObject);
+    addBookToLibray(newBookObject, myLibrary);
     renderBookInfo(myLibrary[myLibrary.length - 1]);
 };
 

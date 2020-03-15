@@ -84,6 +84,17 @@ a:hover {
     text-align: center;
 }
 
+.buttonRemoveBook {
+    float: left;                  /* Add this */
+    /* padding-left: 95px; */
+    width: 10%;
+    height: 75px;
+    background-color: blue;
+    box-sizing: border-box;
+    text-align: center;
+    /* border: solid 2px black; */
+}
+
 .divTitle {
     float: left;                  /* Add this */
     padding-left: 95px;
@@ -107,7 +118,7 @@ a:hover {
 
 .divPages {
     float: left;                  /* Add this */
-    width: 15%;
+    width: 10%;
     height: 75px;
     background-color: #F09A9D;
     box-sizing: border-box;
@@ -116,7 +127,7 @@ a:hover {
 
 .divRead {
     float: left;                  /* Add this */
-    width: 15%;
+    width: 10%;
     height: 75px;;
     background-color: #F09A9D;
     box-sizing: border-box;
