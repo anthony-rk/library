@@ -36,8 +36,16 @@ console.table(myLibrary);
 // });
 
 // make render work on 1 entry in the array, and then foreach() it to the rest
-let render = function(inputBook) {
-    let parent = document.getElementById("books");
+let renderBookInfo = function(inputBook) {
+    let lineBreak = document.createElement('br');
+
+    let baseNode = document.getElementById("books");
+    let parent = document.createElement('div');
+    parent.classList.add('root');
+    baseNode.append(parent);
+    parent.append(lineBreak);
+
+
     // Make 4 divs here, one for Title, Author, Pages, and Read. Use CSS Classes to format
     let divTitle = document.createElement('div')
     divTitle.classList.add('divTitle');
@@ -60,4 +68,13 @@ let render = function(inputBook) {
     divPages.innerText = inputBook.pages;
     divRead.innerText = inputBook.read;
 
-}(myLibrary[0]);
+};
+
+// Run renderBooKInfo for the myLibrary array
+let renderOnPage = function(inputArray) {
+    let length = inputArray.length;
+
+    for (let i = 0; i < length; i++) {
+        renderBookInfo(inputArray[i]);
+    }
+}(myLibrary);

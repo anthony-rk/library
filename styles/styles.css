@@ -17,8 +17,6 @@ h1 {
 }
 
 .table-head {
-    padding-left: 20px;
-    padding-right: 20px;
     width: 100px;
     border: dotted maroon;
 }
@@ -38,28 +36,32 @@ h1 {
 .divTitle {
     float: left;                  /* Add this */
     padding-left: 95px;
-    width: 100px;
+    width: 25%;
     height: 300px;
     background-color: #F09A9D;
+    box-sizing: border-box;
 }
 
 .divAuthor {
     float: left;                  /* Add this */
-    width: 100px;
+    width: 25%;
     height: 300px;
     background-color: #F09A9D;
+    box-sizing: border-box;
 }
 
 .divPages {
     float: left;                  /* Add this */
-    width: 100px;
+    width: 25%;
     height: 300px;
     background-color: #F09A9D;
+    box-sizing: border-box;
 }
 
 .divRead {
     float: left;                  /* Add this */
-    width: 100px;
+    width: 25%;
     height: 300px;
     background-color: #F09A9D;
+    box-sizing: border-box;
 }
