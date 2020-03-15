@@ -18,29 +18,15 @@ a:hover {
     color: green;
 }
 
-.book-table {
-    margin: 0 auto;
-    text-align: left;
-    color: black;
-    background-color: lightsteelblue;
+/* Table Header Section */
+.headerRemoveButton {
+    float: left;                  /* Add this */
+    width: 10%;
+    height: 50px;
+    background-color: lightgray;
     border: dotted black;
-}
-
-.table-head {
-    width: 100px;
-    border: dotted maroon;
-}
-
-.table-head-left {
-    padding-left: 20px;
-    width: 100px;
-    border: dotted maroon;
-}
-
-.table-head-right {
-    padding-right: 20px;
-    width: 100px;
-    border: dotted maroon;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .headerTitle {
@@ -48,7 +34,7 @@ a:hover {
     padding-left: 95px;
     width: 30%;
     height: 50px;
-    background-color: white;
+    background-color: lightgray;
     border: dotted black;
     box-sizing: border-box;
     text-align: center;
@@ -58,7 +44,7 @@ a:hover {
     float: left;                  /* Add this */
     width: 40%;
     height: 50px;
-    background-color: white;
+    background-color: lightgray;
     border: dotted black;
     box-sizing: border-box;
     text-align: center;
@@ -66,9 +52,9 @@ a:hover {
 
 .headerPages {
     float: left;                  /* Add this */
-    width: 15%;
+    width: 10%;
     height: 50px;
-    background-color: white;
+    background-color: lightgray;
     border: dotted black;
     box-sizing: border-box;
     text-align: center;
@@ -76,23 +62,29 @@ a:hover {
 
 .headerRead {
     float: left;                  /* Add this */
-    width: 15%;
+    width: 10%;
     height: 50px;;
-    background-color: white;
+    background-color: lightgray;
     border: dotted black;
     box-sizing: border-box;
     text-align: center;
 }
 
+/* Table Contents Section */
 .buttonRemoveBook {
     float: left;                  /* Add this */
-    /* padding-left: 95px; */
     width: 10%;
     height: 75px;
-    background-color: blue;
+    background-color: lightgray;
+    border: dotted black;
     box-sizing: border-box;
     text-align: center;
-    /* border: solid 2px black; */
+    font-size: 10px;
+}
+
+.buttonRemoveBook:hover {
+    background-color: grey;
+    color: white;
 }
 
 .divTitle {
