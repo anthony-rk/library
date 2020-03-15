@@ -1,7 +1,6 @@
 // https://www.valentinog.com/blog/html-table/
 
 let myLibrary = [];
-// let headerArray = ['Title', 'Author'. "Pages", 'Read'];
 
 // Object Constructor
 function Book(title, author, pages, read) {
@@ -113,13 +112,22 @@ let renderOnPage = function(inputArray) {
     }
 }(myLibrary);
 
-let userAddNewBookFunction = function() {
+// let addNewUserAddedBook = function(newBookObject) {
+//     myLibrary.push(newBookObject);
+// };
+
+let getNewBookData = function() {
     let newBookObject = {};
-    // alert("Hello there!");
-    newBookObject.newTitle = prompt("Please enter new book title:", "War & Peace");
-    newBookObject.newAuthor = prompt("Please enter new book author:", "Leo Tolstoy");
-    newBookObject.newPages = prompt("Please enter new book pages:", "1225");
-    newBookObject.newRead = prompt("Please enter if new book has been read:", "No");
+    
+    // Add conditions for if user puts wrong info inside or if it is blank
+    newBookObject.title = prompt("Please enter new book title:", "War & Peace");
+    newBookObject.author = prompt("Please enter new book author:", "Leo Tolstoy");
+    newBookObject.pages = prompt("Please enter new book pages:", "1225");
+    newBookObject.read = prompt("Please enter if new book has been read: (True/False)", "True");
 
     console.log(newBookObject);
+    // return newBookObject;
+    myLibrary.push(newBookObject);
+    renderBookInfo(myLibrary[myLibrary.length - 1]);
 };
+
