@@ -8,6 +8,16 @@ h1 {
     font-family: cursive;
 }
 
+#github-link {
+    text-align: center;
+    font-style: italic;
+    font-size: small;
+}
+
+a:hover {
+    color: green;
+}
+
 .book-table {
     margin: 0 auto;
     text-align: left;
@@ -33,35 +43,82 @@ h1 {
     border: dotted maroon;
 }
 
+.headerTitle {
+    float: left;                  /* Add this */
+    padding-left: 95px;
+    width: 30%;
+    height: 50px;
+    background-color: white;
+    border: dotted black;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.headerAuthor {
+    float: left;                  /* Add this */
+    width: 40%;
+    height: 50px;
+    background-color: white;
+    border: dotted black;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.headerPages {
+    float: left;                  /* Add this */
+    width: 15%;
+    height: 50px;
+    background-color: white;
+    border: dotted black;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.headerRead {
+    float: left;                  /* Add this */
+    width: 15%;
+    height: 50px;;
+    background-color: white;
+    border: dotted black;
+    box-sizing: border-box;
+    text-align: center;
+}
+
 .divTitle {
     float: left;                  /* Add this */
     padding-left: 95px;
-    width: 25%;
-    height: 300px;
+    width: 30%;
+    height: 75px;
     background-color: #F09A9D;
     box-sizing: border-box;
+    text-align: center;
+    /* border: solid 2px black; */
+
 }
 
 .divAuthor {
     float: left;                  /* Add this */
-    width: 25%;
-    height: 300px;
+    width: 40%;
+    height: 75px;
     background-color: #F09A9D;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .divPages {
     float: left;                  /* Add this */
-    width: 25%;
-    height: 300px;
+    width: 15%;
+    height: 75px;
     background-color: #F09A9D;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .divRead {
     float: left;                  /* Add this */
-    width: 25%;
-    height: 300px;
+    width: 15%;
+    height: 75px;;
     background-color: #F09A9D;
     box-sizing: border-box;
+    text-align: center;
 }
