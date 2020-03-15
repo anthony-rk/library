@@ -19,5 +19,47 @@ h1 {
 .table-head {
     padding-left: 20px;
     padding-right: 20px;
+    width: 100px;
     border: dotted maroon;
+}
+
+.table-head-left {
+    padding-left: 20px;
+    width: 100px;
+    border: dotted maroon;
+}
+
+.table-head-right {
+    padding-right: 20px;
+    width: 100px;
+    border: dotted maroon;
+}
+
+.divTitle {
+    float: left;                  /* Add this */
+    padding-left: 95px;
+    width: 100px;
+    height: 300px;
+    background-color: #F09A9D;
+}
+
+.divAuthor {
+    float: left;                  /* Add this */
+    width: 100px;
+    height: 300px;
+    background-color: #F09A9D;
+}
+
+.divPages {
+    float: left;                  /* Add this */
+    width: 100px;
+    height: 300px;
+    background-color: #F09A9D;
+}
+
+.divRead {
+    float: left;                  /* Add this */
+    width: 100px;
+    height: 300px;
+    background-color: #F09A9D;
 }
