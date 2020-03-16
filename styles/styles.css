@@ -87,6 +87,11 @@ a:hover {
     color: white;
 }
 
+.divReadButton:hover {
+    background-color: grey;
+    color: white;
+}
+
 .divTitle {
     float: left;                  /* Add this */
     padding-left: 95px;
@@ -101,7 +106,7 @@ a:hover {
 
 .divAuthor {
     float: left;                  /* Add this */
-    width: 40%;
+    width: 30%;
     height: 75px;
     background-color: #F09A9D;
     box-sizing: border-box;
@@ -122,6 +127,16 @@ a:hover {
     width: 10%;
     height: 75px;;
     background-color: #F09A9D;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.divReadButton {
+    float: left;                  /* Add this */
+    width: 10%;
+    height: 75px;;
+    background-color: lightgray;
+    border: dotted black;
     box-sizing: border-box;
     text-align: center;
 }
