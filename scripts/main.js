@@ -11,13 +11,24 @@ function Book(title, author, pages, read, index) {
     this.index = index;
 }
 
+Book.prototype.toggleRead = function() {
+    // Toggle "Read" to "Not Read"
+    console.log(this.read);
+
+    if (this.read === true) {
+        this.read = false;
+    } else {
+        this.read = true;
+    }
+    console.log(this.read);
+}
+
+Book.prototype.sayHello = function() {
+    console.log(this.title);
+}
+
 addBookToLibray = function(newBook, myArray) {
     myArray.push(newBook);
-};
-
-Book.prototype.toggleRead = function(book) {
-    // Toggle "Read" to "Not Read"
-    return book.read === true ? book.read = false : book.read = true;
 };
 
 // Initialize the Library with some Data
@@ -27,10 +38,6 @@ const bookCleanCode = new Book('Clean Code', 'Robert C. Martin', 407, true, (myL
 addBookToLibray(bookCleanCode, myLibrary);
 const bookPridePrejudice = new Book('Pride and Prejudice', 'Jane Austen', 432, false, (myLibrary.length));
 addBookToLibray(bookPridePrejudice, myLibrary);
-
-// To display the table in the console
-// Remove once done
-console.table(myLibrary);
 
 // make render work on 1 entry in the array, and then loop over the full myLibrary array
 let renderBookInfo = function(inputBook) {
@@ -75,13 +82,26 @@ let renderBookInfo = function(inputBook) {
     divRead.classList.add('divRead');
     parent.append(divRead);
 
+    let divReadButton = document.createElement('button');
+    divReadButton.classList.add('divReadButton');
+    divReadButton.innerHTML = "Update Read";
+    divReadButton.addEventListener("click", function() {
+        // Update the contents of read using toggleRead prototype function
+        myLibrary[currentIndex].toggleRead();
+
+        // Re-run the renderBookInfo() on each in the array.
+        removeCurrentRenderingOnPage();
+        renderOnPage(myLibrary);
+    });
+    parent.append(divReadButton);
+
     divTitle.innerText = inputBook.title;
     divAuthor.innerText = inputBook.author;
     divPages.innerText = inputBook.pages;
     divRead.innerText = inputBook.read;
 };
 
-// Render renderBookInfor for the headers
+// Render renderBookInfo for the headers
 let renderBookHeader = function(inputBook) {
     let lineBreak = document.createElement('br');
 
